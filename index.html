@@ -1,0 +1,41 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS 3D Physics</title>
+  <style>
+    body { margin: 0; }
+  </style>
+</head>
+<body>
+  <script src="js/three.js"></script>
+  <script src="js/ammo.js"></script>
+  <script>
+
+    //variable declaration
+    let physicsWorld;
+
+    //Ammojs Initialization
+    Ammo().then( start )
+
+    function start(){
+
+      //code goes here
+      setupPhysicsWorld()
+
+    }
+
+    function setupPhysicsWorld(){
+
+      let collisionConfiguration  = new Ammo.btDefaultCollisionConfiguration(),
+      dispatcher              = new Ammo.btCollisionDispatcher(collisionConfiguration),
+      overlappingPairCache    = new Ammo.btDbvtBroadphase(),
+      solver                  = new Ammo.btSequentialImpulseConstraintSolver();
+
+      physicsWorld           = new Ammo.btDiscreteDynamicsWorld(dispatcher, overlappingPairCache, solver, collisionConfiguration);
+      physicsWorld.setGravity(new Ammo.btVector3(0, -10, 0));
+
+    }
+
+  </script>
+</body>
+</html>

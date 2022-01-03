@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html><head><title>Javascript 3D Physics Tut 2 Base – Medium</title><meta name="description" content="You can't perform that action at this time. You signed in with another tab or window. You signed out in another tab or window. Reload to refresh your session. Reload to refresh your session."><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!-- base href="https://medium.com/media/de357df9dea8b540d4392d07f3cedee9" --><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="de357df9dea8b540d4392d07f3cedee9_data/819f08b9c455d1b7fd1815b137e61a41.js" charset="utf-8"></script><link rel="stylesheet" href="fc0e8fbb0d9439f8fa258e278e5e0c76_data/gist-embed-35f1932cc1d8f751c18d0d928ff405a2.css"><div id="gist100267163" class="gist">
+    <div class="gist-file" translate="no">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-move-html" class="file my-2">
+    
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-html  ">
+
+      
+<div class="js-check-bidi blob-code-content">
+  <template class="js-file-alert-template">
+  <div data-view-component="true" class="flash flash-warn flash-full d-flex flex-items-center">
+  <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+  
+    <span>
+      This file contains bidirectional Unicode text that may be 
+interpreted or compiled differently than what appears below. To review, 
+open the file in an editor that reveals hidden Unicode characters.
+      <a href="https://github.co/hiddenchars" target="_blank">Learn more about bidirectional Unicode characters</a>
+    </span>
+
+
+  <div data-view-component="true" class="flash-action">        <a href="https://medium.com/media/%7B%7B%20revealButtonHref%20%7D%7D" data-view-component="true" class="btn-sm btn">  Show hidden characters
+</a>
+</div>
+</div></template>
+<template class="js-line-alert-template">
+  <span aria-label="This line has hidden Unicode characters" data-view-component="true" class="bidi-line-alert tooltipped tooltipped-e">
+    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+</span></template>
+
+  <table class="highlight tab-size js-file-line-container js-code-nav-container js-tagsearch-file" data-tab-size="8" data-paste-markdown-skip="" data-tagsearch-lang="HTML" data-tagsearch-path="move.html">
+        <tbody><tr>
+          <td id="file-move-html-L1" class="blob-num js-line-number js-code-nav-line-number" data-line-number="1"></td>
+          <td id="file-move-html-LC1" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L2" class="blob-num js-line-number js-code-nav-line-number" data-line-number="2"></td>
+          <td id="file-move-html-LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-kos">&lt;</span><span class="pl-ent">html</span><span class="pl-kos">&gt;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L3" class="blob-num js-line-number js-code-nav-line-number" data-line-number="3"></td>
+          <td id="file-move-html-LC3" class="blob-code blob-code-inner js-file-line">    <span class="pl-kos">&lt;</span><span class="pl-ent">head</span><span class="pl-kos">&gt;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L4" class="blob-num js-line-number js-code-nav-line-number" data-line-number="4"></td>
+          <td id="file-move-html-LC4" class="blob-code blob-code-inner js-file-line">        <span class="pl-kos">&lt;</span><span class="pl-ent">meta</span> <span class="pl-c1">charset</span>="<span class="pl-s">utf-8</span>"<span class="pl-kos">&gt;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L5" class="blob-num js-line-number js-code-nav-line-number" data-line-number="5"></td>
+          <td id="file-move-html-LC5" class="blob-code blob-code-inner js-file-line">        <span class="pl-kos">&lt;</span><span class="pl-ent">title</span><span class="pl-kos">&gt;</span>Move JS 3D Physics<span class="pl-kos">&lt;/</span><span class="pl-ent">title</span><span class="pl-kos">&gt;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L6" class="blob-num js-line-number js-code-nav-line-number" data-line-number="6"></td>
+          <td id="file-move-html-LC6" class="blob-code blob-code-inner js-file-line">        <span class="pl-kos">&lt;</span><span class="pl-ent">style</span><span class="pl-kos">&gt;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L7" class="blob-num js-line-number js-code-nav-line-number" data-line-number="7"></td>
+          <td id="file-move-html-LC7" class="blob-code blob-code-inner js-file-line">            <span class="pl-ent">body</span> { <span class="pl-c1">margin</span><span class="pl-kos">:</span> <span class="pl-c1">0</span>; }</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L8" class="blob-num js-line-number js-code-nav-line-number" data-line-number="8"></td>
+          <td id="file-move-html-LC8" class="blob-code blob-code-inner js-file-line">        <span class="pl-kos">&lt;/</span><span class="pl-ent">style</span><span class="pl-kos">&gt;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L9" class="blob-num js-line-number js-code-nav-line-number" data-line-number="9"></td>
+          <td id="file-move-html-LC9" class="blob-code blob-code-inner js-file-line">    <span class="pl-kos">&lt;/</span><span class="pl-ent">head</span><span class="pl-kos">&gt;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L10" class="blob-num js-line-number js-code-nav-line-number" data-line-number="10"></td>
+          <td id="file-move-html-LC10" class="blob-code blob-code-inner js-file-line">    <span class="pl-kos">&lt;</span><span class="pl-ent">body</span><span class="pl-kos">&gt;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L11" class="blob-num js-line-number js-code-nav-line-number" data-line-number="11"></td>
+          <td id="file-move-html-LC11" class="blob-code blob-code-inner js-file-line">        <span class="pl-kos">&lt;</span><span class="pl-ent">script</span> <span class="pl-c1">src</span>="<span class="pl-s">js/three.js</span>"<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L12" class="blob-num js-line-number js-code-nav-line-number" data-line-number="12"></td>
+          <td id="file-move-html-LC12" class="blob-code blob-code-inner js-file-line">        <span class="pl-kos">&lt;</span><span class="pl-ent">script</span> <span class="pl-c1">src</span>="<span class="pl-s">js/ammo.js</span>"<span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L13" class="blob-num js-line-number js-code-nav-line-number" data-line-number="13"></td>
+          <td id="file-move-html-LC13" class="blob-code blob-code-inner js-file-line">        <span class="pl-kos">&lt;</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L14" class="blob-num js-line-number js-code-nav-line-number" data-line-number="14"></td>
+          <td id="file-move-html-LC14" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L15" class="blob-num js-line-number js-code-nav-line-number" data-line-number="15"></td>
+          <td id="file-move-html-LC15" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//variable declaration section</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L16" class="blob-num js-line-number js-code-nav-line-number" data-line-number="16"></td>
+          <td id="file-move-html-LC16" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">let</span> <span class="pl-s1">physicsWorld</span><span class="pl-kos">,</span> <span class="pl-s1">scene</span><span class="pl-kos">,</span> <span class="pl-s1">camera</span><span class="pl-kos">,</span> <span class="pl-s1">renderer</span><span class="pl-kos">,</span> <span class="pl-s1">rigidBodies</span> <span class="pl-c1">=</span> <span class="pl-kos">[</span><span class="pl-kos">]</span><span class="pl-kos">,</span> <span class="pl-s1">tmpTrans</span> <span class="pl-c1">=</span> <span class="pl-c1">null</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L17" class="blob-num js-line-number js-code-nav-line-number" data-line-number="17"></td>
+          <td id="file-move-html-LC17" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L18" class="blob-num js-line-number js-code-nav-line-number" data-line-number="18"></td>
+          <td id="file-move-html-LC18" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">//Ammojs Initialization</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L19" class="blob-num js-line-number js-code-nav-line-number" data-line-number="19"></td>
+          <td id="file-move-html-LC19" class="blob-code blob-code-inner js-file-line">            <span class="pl-v">Ammo</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">.</span><span class="pl-en">then</span><span class="pl-kos">(</span><span class="pl-s1">start</span><span class="pl-kos">)</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L20" class="blob-num js-line-number js-code-nav-line-number" data-line-number="20"></td>
+          <td id="file-move-html-LC20" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L21" class="blob-num js-line-number js-code-nav-line-number" data-line-number="21"></td>
+          <td id="file-move-html-LC21" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">function</span> <span class="pl-en">start</span> <span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L22" class="blob-num js-line-number js-code-nav-line-number" data-line-number="22"></td>
+          <td id="file-move-html-LC22" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L23" class="blob-num js-line-number js-code-nav-line-number" data-line-number="23"></td>
+          <td id="file-move-html-LC23" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">tmpTrans</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btTransform</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L24" class="blob-num js-line-number js-code-nav-line-number" data-line-number="24"></td>
+          <td id="file-move-html-LC24" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L25" class="blob-num js-line-number js-code-nav-line-number" data-line-number="25"></td>
+          <td id="file-move-html-LC25" class="blob-code blob-code-inner js-file-line">                <span class="pl-en">setupPhysicsWorld</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L26" class="blob-num js-line-number js-code-nav-line-number" data-line-number="26"></td>
+          <td id="file-move-html-LC26" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L27" class="blob-num js-line-number js-code-nav-line-number" data-line-number="27"></td>
+          <td id="file-move-html-LC27" class="blob-code blob-code-inner js-file-line">                <span class="pl-en">setupGraphics</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L28" class="blob-num js-line-number js-code-nav-line-number" data-line-number="28"></td>
+          <td id="file-move-html-LC28" class="blob-code blob-code-inner js-file-line">                <span class="pl-en">createBlock</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L29" class="blob-num js-line-number js-code-nav-line-number" data-line-number="29"></td>
+          <td id="file-move-html-LC29" class="blob-code blob-code-inner js-file-line">                <span class="pl-en">createBall</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L30" class="blob-num js-line-number js-code-nav-line-number" data-line-number="30"></td>
+          <td id="file-move-html-LC30" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L31" class="blob-num js-line-number js-code-nav-line-number" data-line-number="31"></td>
+          <td id="file-move-html-LC31" class="blob-code blob-code-inner js-file-line">                <span class="pl-en">renderFrame</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L32" class="blob-num js-line-number js-code-nav-line-number" data-line-number="32"></td>
+          <td id="file-move-html-LC32" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L33" class="blob-num js-line-number js-code-nav-line-number" data-line-number="33"></td>
+          <td id="file-move-html-LC33" class="blob-code blob-code-inner js-file-line">            <span class="pl-kos">}</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L34" class="blob-num js-line-number js-code-nav-line-number" data-line-number="34"></td>
+          <td id="file-move-html-LC34" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L35" class="blob-num js-line-number js-code-nav-line-number" data-line-number="35"></td>
+          <td id="file-move-html-LC35" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">function</span> <span class="pl-en">setupPhysicsWorld</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L36" class="blob-num js-line-number js-code-nav-line-number" data-line-number="36"></td>
+          <td id="file-move-html-LC36" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L37" class="blob-num js-line-number js-code-nav-line-number" data-line-number="37"></td>
+          <td id="file-move-html-LC37" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">collisionConfiguration</span>  <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btDefaultCollisionConfiguration</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L38" class="blob-num js-line-number js-code-nav-line-number" data-line-number="38"></td>
+          <td id="file-move-html-LC38" class="blob-code blob-code-inner js-file-line">                    <span class="pl-s1">dispatcher</span>              <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btCollisionDispatcher</span><span class="pl-kos">(</span><span class="pl-s1">collisionConfiguration</span><span class="pl-kos">)</span><span class="pl-kos">,</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L39" class="blob-num js-line-number js-code-nav-line-number" data-line-number="39"></td>
+          <td id="file-move-html-LC39" class="blob-code blob-code-inner js-file-line">                    <span class="pl-s1">overlappingPairCache</span>    <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btDbvtBroadphase</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L40" class="blob-num js-line-number js-code-nav-line-number" data-line-number="40"></td>
+          <td id="file-move-html-LC40" class="blob-code blob-code-inner js-file-line">                    <span class="pl-s1">solver</span>                  <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btSequentialImpulseConstraintSolver</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L41" class="blob-num js-line-number js-code-nav-line-number" data-line-number="41"></td>
+          <td id="file-move-html-LC41" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L42" class="blob-num js-line-number js-code-nav-line-number" data-line-number="42"></td>
+          <td id="file-move-html-LC42" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">physicsWorld</span>           <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btDiscreteDynamicsWorld</span><span class="pl-kos">(</span><span class="pl-s1">dispatcher</span><span class="pl-kos">,</span> <span class="pl-s1">overlappingPairCache</span><span class="pl-kos">,</span> <span class="pl-s1">solver</span><span class="pl-kos">,</span> <span class="pl-s1">collisionConfiguration</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L43" class="blob-num js-line-number js-code-nav-line-number" data-line-number="43"></td>
+          <td id="file-move-html-LC43" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">physicsWorld</span><span class="pl-kos">.</span><span class="pl-en">setGravity</span><span class="pl-kos">(</span><span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btVector3</span><span class="pl-kos">(</span><span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-c1">-</span><span class="pl-c1">10</span><span class="pl-kos">,</span> <span class="pl-c1">0</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L44" class="blob-num js-line-number js-code-nav-line-number" data-line-number="44"></td>
+          <td id="file-move-html-LC44" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L45" class="blob-num js-line-number js-code-nav-line-number" data-line-number="45"></td>
+          <td id="file-move-html-LC45" class="blob-code blob-code-inner js-file-line">            <span class="pl-kos">}</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L46" class="blob-num js-line-number js-code-nav-line-number" data-line-number="46"></td>
+          <td id="file-move-html-LC46" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L47" class="blob-num js-line-number js-code-nav-line-number" data-line-number="47"></td>
+          <td id="file-move-html-LC47" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L48" class="blob-num js-line-number js-code-nav-line-number" data-line-number="48"></td>
+          <td id="file-move-html-LC48" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">function</span> <span class="pl-en">setupGraphics</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L49" class="blob-num js-line-number js-code-nav-line-number" data-line-number="49"></td>
+          <td id="file-move-html-LC49" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L50" class="blob-num js-line-number js-code-nav-line-number" data-line-number="50"></td>
+          <td id="file-move-html-LC50" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">//create clock for timing</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L51" class="blob-num js-line-number js-code-nav-line-number" data-line-number="51"></td>
+          <td id="file-move-html-LC51" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">clock</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-c1">THREE</span><span class="pl-kos">.</span><span class="pl-c1">Clock</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L52" class="blob-num js-line-number js-code-nav-line-number" data-line-number="52"></td>
+          <td id="file-move-html-LC52" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L53" class="blob-num js-line-number js-code-nav-line-number" data-line-number="53"></td>
+          <td id="file-move-html-LC53" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">//create the scene</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L54" class="blob-num js-line-number js-code-nav-line-number" data-line-number="54"></td>
+          <td id="file-move-html-LC54" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">scene</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-c1">THREE</span><span class="pl-kos">.</span><span class="pl-c1">Scene</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L55" class="blob-num js-line-number js-code-nav-line-number" data-line-number="55"></td>
+          <td id="file-move-html-LC55" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">scene</span><span class="pl-kos">.</span><span class="pl-c1">background</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-c1">THREE</span><span class="pl-kos">.</span><span class="pl-c1">Color</span><span class="pl-kos">(</span> <span class="pl-c1">0xbfd1e5</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L56" class="blob-num js-line-number js-code-nav-line-number" data-line-number="56"></td>
+          <td id="file-move-html-LC56" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L57" class="blob-num js-line-number js-code-nav-line-number" data-line-number="57"></td>
+          <td id="file-move-html-LC57" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">//create camera</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L58" class="blob-num js-line-number js-code-nav-line-number" data-line-number="58"></td>
+          <td id="file-move-html-LC58" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">camera</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-c1">THREE</span><span class="pl-kos">.</span><span class="pl-c1">PerspectiveCamera</span><span class="pl-kos">(</span> <span class="pl-c1">60</span><span class="pl-kos">,</span> <span class="pl-smi">window</span><span class="pl-kos">.</span><span class="pl-c1">innerWidth</span> <span class="pl-c1">/</span> <span class="pl-smi">window</span><span class="pl-kos">.</span><span class="pl-c1">innerHeight</span><span class="pl-kos">,</span> <span class="pl-c1">0.2</span><span class="pl-kos">,</span> <span class="pl-c1">5000</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L59" class="blob-num js-line-number js-code-nav-line-number" data-line-number="59"></td>
+          <td id="file-move-html-LC59" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">camera</span><span class="pl-kos">.</span><span class="pl-c1">position</span><span class="pl-kos">.</span><span class="pl-en">set</span><span class="pl-kos">(</span> <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-c1">30</span><span class="pl-kos">,</span> <span class="pl-c1">70</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L60" class="blob-num js-line-number js-code-nav-line-number" data-line-number="60"></td>
+          <td id="file-move-html-LC60" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">camera</span><span class="pl-kos">.</span><span class="pl-en">lookAt</span><span class="pl-kos">(</span><span class="pl-k">new</span> <span class="pl-c1">THREE</span><span class="pl-kos">.</span><span class="pl-c1">Vector3</span><span class="pl-kos">(</span><span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-c1">0</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L61" class="blob-num js-line-number js-code-nav-line-number" data-line-number="61"></td>
+          <td id="file-move-html-LC61" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L62" class="blob-num js-line-number js-code-nav-line-number" data-line-number="62"></td>
+          <td id="file-move-html-LC62" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">//Add hemisphere light</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L63" class="blob-num js-line-number js-code-nav-line-number" data-line-number="63"></td>
+          <td id="file-move-html-LC63" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">hemiLight</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-c1">THREE</span><span class="pl-kos">.</span><span class="pl-c1">HemisphereLight</span><span class="pl-kos">(</span> <span class="pl-c1">0xffffff</span><span class="pl-kos">,</span> <span class="pl-c1">0xffffff</span><span class="pl-kos">,</span> <span class="pl-c1">0.1</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L64" class="blob-num js-line-number js-code-nav-line-number" data-line-number="64"></td>
+          <td id="file-move-html-LC64" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">hemiLight</span><span class="pl-kos">.</span><span class="pl-c1">color</span><span class="pl-kos">.</span><span class="pl-en">setHSL</span><span class="pl-kos">(</span> <span class="pl-c1">0.6</span><span class="pl-kos">,</span> <span class="pl-c1">0.6</span><span class="pl-kos">,</span> <span class="pl-c1">0.6</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L65" class="blob-num js-line-number js-code-nav-line-number" data-line-number="65"></td>
+          <td id="file-move-html-LC65" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">hemiLight</span><span class="pl-kos">.</span><span class="pl-c1">groundColor</span><span class="pl-kos">.</span><span class="pl-en">setHSL</span><span class="pl-kos">(</span> <span class="pl-c1">0.1</span><span class="pl-kos">,</span> <span class="pl-c1">1</span><span class="pl-kos">,</span> <span class="pl-c1">0.4</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L66" class="blob-num js-line-number js-code-nav-line-number" data-line-number="66"></td>
+          <td id="file-move-html-LC66" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">hemiLight</span><span class="pl-kos">.</span><span class="pl-c1">position</span><span class="pl-kos">.</span><span class="pl-en">set</span><span class="pl-kos">(</span> <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-c1">50</span><span class="pl-kos">,</span> <span class="pl-c1">0</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L67" class="blob-num js-line-number js-code-nav-line-number" data-line-number="67"></td>
+          <td id="file-move-html-LC67" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">scene</span><span class="pl-kos">.</span><span class="pl-en">add</span><span class="pl-kos">(</span> <span class="pl-s1">hemiLight</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L68" class="blob-num js-line-number js-code-nav-line-number" data-line-number="68"></td>
+          <td id="file-move-html-LC68" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L69" class="blob-num js-line-number js-code-nav-line-number" data-line-number="69"></td>
+          <td id="file-move-html-LC69" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">//Add directional light</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L70" class="blob-num js-line-number js-code-nav-line-number" data-line-number="70"></td>
+          <td id="file-move-html-LC70" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">dirLight</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-c1">THREE</span><span class="pl-kos">.</span><span class="pl-c1">DirectionalLight</span><span class="pl-kos">(</span> <span class="pl-c1">0xffffff</span> <span class="pl-kos">,</span> <span class="pl-c1">1</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L71" class="blob-num js-line-number js-code-nav-line-number" data-line-number="71"></td>
+          <td id="file-move-html-LC71" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">dirLight</span><span class="pl-kos">.</span><span class="pl-c1">color</span><span class="pl-kos">.</span><span class="pl-en">setHSL</span><span class="pl-kos">(</span> <span class="pl-c1">0.1</span><span class="pl-kos">,</span> <span class="pl-c1">1</span><span class="pl-kos">,</span> <span class="pl-c1">0.95</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L72" class="blob-num js-line-number js-code-nav-line-number" data-line-number="72"></td>
+          <td id="file-move-html-LC72" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">dirLight</span><span class="pl-kos">.</span><span class="pl-c1">position</span><span class="pl-kos">.</span><span class="pl-en">set</span><span class="pl-kos">(</span> <span class="pl-c1">-</span><span class="pl-c1">1</span><span class="pl-kos">,</span> <span class="pl-c1">1.75</span><span class="pl-kos">,</span> <span class="pl-c1">1</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L73" class="blob-num js-line-number js-code-nav-line-number" data-line-number="73"></td>
+          <td id="file-move-html-LC73" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">dirLight</span><span class="pl-kos">.</span><span class="pl-c1">position</span><span class="pl-kos">.</span><span class="pl-en">multiplyScalar</span><span class="pl-kos">(</span> <span class="pl-c1">100</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L74" class="blob-num js-line-number js-code-nav-line-number" data-line-number="74"></td>
+          <td id="file-move-html-LC74" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">scene</span><span class="pl-kos">.</span><span class="pl-en">add</span><span class="pl-kos">(</span> <span class="pl-s1">dirLight</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L75" class="blob-num js-line-number js-code-nav-line-number" data-line-number="75"></td>
+          <td id="file-move-html-LC75" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L76" class="blob-num js-line-number js-code-nav-line-number" data-line-number="76"></td>
+          <td id="file-move-html-LC76" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">dirLight</span><span class="pl-kos">.</span><span class="pl-c1">castShadow</span> <span class="pl-c1">=</span> <span class="pl-c1">true</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L77" class="blob-num js-line-number js-code-nav-line-number" data-line-number="77"></td>
+          <td id="file-move-html-LC77" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L78" class="blob-num js-line-number js-code-nav-line-number" data-line-number="78"></td>
+          <td id="file-move-html-LC78" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">dirLight</span><span class="pl-kos">.</span><span class="pl-c1">shadow</span><span class="pl-kos">.</span><span class="pl-c1">mapSize</span><span class="pl-kos">.</span><span class="pl-c1">width</span> <span class="pl-c1">=</span> <span class="pl-c1">2048</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L79" class="blob-num js-line-number js-code-nav-line-number" data-line-number="79"></td>
+          <td id="file-move-html-LC79" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">dirLight</span><span class="pl-kos">.</span><span class="pl-c1">shadow</span><span class="pl-kos">.</span><span class="pl-c1">mapSize</span><span class="pl-kos">.</span><span class="pl-c1">height</span> <span class="pl-c1">=</span> <span class="pl-c1">2048</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L80" class="blob-num js-line-number js-code-nav-line-number" data-line-number="80"></td>
+          <td id="file-move-html-LC80" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L81" class="blob-num js-line-number js-code-nav-line-number" data-line-number="81"></td>
+          <td id="file-move-html-LC81" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">d</span> <span class="pl-c1">=</span> <span class="pl-c1">50</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L82" class="blob-num js-line-number js-code-nav-line-number" data-line-number="82"></td>
+          <td id="file-move-html-LC82" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L83" class="blob-num js-line-number js-code-nav-line-number" data-line-number="83"></td>
+          <td id="file-move-html-LC83" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">dirLight</span><span class="pl-kos">.</span><span class="pl-c1">shadow</span><span class="pl-kos">.</span><span class="pl-c1">camera</span><span class="pl-kos">.</span><span class="pl-c1">left</span> <span class="pl-c1">=</span> <span class="pl-c1">-</span><span class="pl-s1">d</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L84" class="blob-num js-line-number js-code-nav-line-number" data-line-number="84"></td>
+          <td id="file-move-html-LC84" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">dirLight</span><span class="pl-kos">.</span><span class="pl-c1">shadow</span><span class="pl-kos">.</span><span class="pl-c1">camera</span><span class="pl-kos">.</span><span class="pl-c1">right</span> <span class="pl-c1">=</span> <span class="pl-s1">d</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L85" class="blob-num js-line-number js-code-nav-line-number" data-line-number="85"></td>
+          <td id="file-move-html-LC85" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">dirLight</span><span class="pl-kos">.</span><span class="pl-c1">shadow</span><span class="pl-kos">.</span><span class="pl-c1">camera</span><span class="pl-kos">.</span><span class="pl-c1">top</span> <span class="pl-c1">=</span> <span class="pl-s1">d</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L86" class="blob-num js-line-number js-code-nav-line-number" data-line-number="86"></td>
+          <td id="file-move-html-LC86" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">dirLight</span><span class="pl-kos">.</span><span class="pl-c1">shadow</span><span class="pl-kos">.</span><span class="pl-c1">camera</span><span class="pl-kos">.</span><span class="pl-c1">bottom</span> <span class="pl-c1">=</span> <span class="pl-c1">-</span><span class="pl-s1">d</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L87" class="blob-num js-line-number js-code-nav-line-number" data-line-number="87"></td>
+          <td id="file-move-html-LC87" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L88" class="blob-num js-line-number js-code-nav-line-number" data-line-number="88"></td>
+          <td id="file-move-html-LC88" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">dirLight</span><span class="pl-kos">.</span><span class="pl-c1">shadow</span><span class="pl-kos">.</span><span class="pl-c1">camera</span><span class="pl-kos">.</span><span class="pl-c1">far</span> <span class="pl-c1">=</span> <span class="pl-c1">13500</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L89" class="blob-num js-line-number js-code-nav-line-number" data-line-number="89"></td>
+          <td id="file-move-html-LC89" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L90" class="blob-num js-line-number js-code-nav-line-number" data-line-number="90"></td>
+          <td id="file-move-html-LC90" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">//Setup the renderer</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L91" class="blob-num js-line-number js-code-nav-line-number" data-line-number="91"></td>
+          <td id="file-move-html-LC91" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">renderer</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-c1">THREE</span><span class="pl-kos">.</span><span class="pl-c1">WebGLRenderer</span><span class="pl-kos">(</span> <span class="pl-kos">{</span> <span class="pl-c1">antialias</span>: <span class="pl-c1">true</span> <span class="pl-kos">}</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L92" class="blob-num js-line-number js-code-nav-line-number" data-line-number="92"></td>
+          <td id="file-move-html-LC92" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">renderer</span><span class="pl-kos">.</span><span class="pl-en">setClearColor</span><span class="pl-kos">(</span> <span class="pl-c1">0xbfd1e5</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L93" class="blob-num js-line-number js-code-nav-line-number" data-line-number="93"></td>
+          <td id="file-move-html-LC93" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">renderer</span><span class="pl-kos">.</span><span class="pl-en">setPixelRatio</span><span class="pl-kos">(</span> <span class="pl-smi">window</span><span class="pl-kos">.</span><span class="pl-c1">devicePixelRatio</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L94" class="blob-num js-line-number js-code-nav-line-number" data-line-number="94"></td>
+          <td id="file-move-html-LC94" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">renderer</span><span class="pl-kos">.</span><span class="pl-en">setSize</span><span class="pl-kos">(</span> <span class="pl-smi">window</span><span class="pl-kos">.</span><span class="pl-c1">innerWidth</span><span class="pl-kos">,</span> <span class="pl-smi">window</span><span class="pl-kos">.</span><span class="pl-c1">innerHeight</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L95" class="blob-num js-line-number js-code-nav-line-number" data-line-number="95"></td>
+          <td id="file-move-html-LC95" class="blob-code blob-code-inner js-file-line">                <span class="pl-smi">document</span><span class="pl-kos">.</span><span class="pl-c1">body</span><span class="pl-kos">.</span><span class="pl-en">appendChild</span><span class="pl-kos">(</span> <span class="pl-s1">renderer</span><span class="pl-kos">.</span><span class="pl-c1">domElement</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L96" class="blob-num js-line-number js-code-nav-line-number" data-line-number="96"></td>
+          <td id="file-move-html-LC96" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L97" class="blob-num js-line-number js-code-nav-line-number" data-line-number="97"></td>
+          <td id="file-move-html-LC97" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">renderer</span><span class="pl-kos">.</span><span class="pl-c1">gammaInput</span> <span class="pl-c1">=</span> <span class="pl-c1">true</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L98" class="blob-num js-line-number js-code-nav-line-number" data-line-number="98"></td>
+          <td id="file-move-html-LC98" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">renderer</span><span class="pl-kos">.</span><span class="pl-c1">gammaOutput</span> <span class="pl-c1">=</span> <span class="pl-c1">true</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L99" class="blob-num js-line-number js-code-nav-line-number" data-line-number="99"></td>
+          <td id="file-move-html-LC99" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L100" class="blob-num js-line-number js-code-nav-line-number" data-line-number="100"></td>
+          <td id="file-move-html-LC100" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">renderer</span><span class="pl-kos">.</span><span class="pl-c1">shadowMap</span><span class="pl-kos">.</span><span class="pl-c1">enabled</span> <span class="pl-c1">=</span> <span class="pl-c1">true</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L101" class="blob-num js-line-number js-code-nav-line-number" data-line-number="101"></td>
+          <td id="file-move-html-LC101" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L102" class="blob-num js-line-number js-code-nav-line-number" data-line-number="102"></td>
+          <td id="file-move-html-LC102" class="blob-code blob-code-inner js-file-line">            <span class="pl-kos">}</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L103" class="blob-num js-line-number js-code-nav-line-number" data-line-number="103"></td>
+          <td id="file-move-html-LC103" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L104" class="blob-num js-line-number js-code-nav-line-number" data-line-number="104"></td>
+          <td id="file-move-html-LC104" class="blob-code blob-code-inner js-file-line">        </td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L105" class="blob-num js-line-number js-code-nav-line-number" data-line-number="105"></td>
+          <td id="file-move-html-LC105" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">function</span> <span class="pl-en">renderFrame</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L106" class="blob-num js-line-number js-code-nav-line-number" data-line-number="106"></td>
+          <td id="file-move-html-LC106" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L107" class="blob-num js-line-number js-code-nav-line-number" data-line-number="107"></td>
+          <td id="file-move-html-LC107" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">deltaTime</span> <span class="pl-c1">=</span> <span class="pl-s1">clock</span><span class="pl-kos">.</span><span class="pl-en">getDelta</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L108" class="blob-num js-line-number js-code-nav-line-number" data-line-number="108"></td>
+          <td id="file-move-html-LC108" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L109" class="blob-num js-line-number js-code-nav-line-number" data-line-number="109"></td>
+          <td id="file-move-html-LC109" class="blob-code blob-code-inner js-file-line">                <span class="pl-en">updatePhysics</span><span class="pl-kos">(</span> <span class="pl-s1">deltaTime</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L110" class="blob-num js-line-number js-code-nav-line-number" data-line-number="110"></td>
+          <td id="file-move-html-LC110" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L111" class="blob-num js-line-number js-code-nav-line-number" data-line-number="111"></td>
+          <td id="file-move-html-LC111" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">renderer</span><span class="pl-kos">.</span><span class="pl-en">render</span><span class="pl-kos">(</span> <span class="pl-s1">scene</span><span class="pl-kos">,</span> <span class="pl-s1">camera</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L112" class="blob-num js-line-number js-code-nav-line-number" data-line-number="112"></td>
+          <td id="file-move-html-LC112" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L113" class="blob-num js-line-number js-code-nav-line-number" data-line-number="113"></td>
+          <td id="file-move-html-LC113" class="blob-code blob-code-inner js-file-line">                <span class="pl-en">requestAnimationFrame</span><span class="pl-kos">(</span> <span class="pl-s1">renderFrame</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L114" class="blob-num js-line-number js-code-nav-line-number" data-line-number="114"></td>
+          <td id="file-move-html-LC114" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L115" class="blob-num js-line-number js-code-nav-line-number" data-line-number="115"></td>
+          <td id="file-move-html-LC115" class="blob-code blob-code-inner js-file-line">            <span class="pl-kos">}</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L116" class="blob-num js-line-number js-code-nav-line-number" data-line-number="116"></td>
+          <td id="file-move-html-LC116" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L117" class="blob-num js-line-number js-code-nav-line-number" data-line-number="117"></td>
+          <td id="file-move-html-LC117" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L118" class="blob-num js-line-number js-code-nav-line-number" data-line-number="118"></td>
+          <td id="file-move-html-LC118" class="blob-code blob-code-inner js-file-line">            </td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L119" class="blob-num js-line-number js-code-nav-line-number" data-line-number="119"></td>
+          <td id="file-move-html-LC119" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L120" class="blob-num js-line-number js-code-nav-line-number" data-line-number="120"></td>
+          <td id="file-move-html-LC120" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">function</span> <span class="pl-en">createBlock</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L121" class="blob-num js-line-number js-code-nav-line-number" data-line-number="121"></td>
+          <td id="file-move-html-LC121" class="blob-code blob-code-inner js-file-line">                </td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L122" class="blob-num js-line-number js-code-nav-line-number" data-line-number="122"></td>
+          <td id="file-move-html-LC122" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">pos</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span><span class="pl-c1">x</span>: <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-c1">y</span>: <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-c1">z</span>: <span class="pl-c1">0</span><span class="pl-kos">}</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L123" class="blob-num js-line-number js-code-nav-line-number" data-line-number="123"></td>
+          <td id="file-move-html-LC123" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">scale</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span><span class="pl-c1">x</span>: <span class="pl-c1">100</span><span class="pl-kos">,</span> <span class="pl-c1">y</span>: <span class="pl-c1">2</span><span class="pl-kos">,</span> <span class="pl-c1">z</span>: <span class="pl-c1">100</span><span class="pl-kos">}</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L124" class="blob-num js-line-number js-code-nav-line-number" data-line-number="124"></td>
+          <td id="file-move-html-LC124" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">quat</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span><span class="pl-c1">x</span>: <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-c1">y</span>: <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-c1">z</span>: <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-c1">w</span>: <span class="pl-c1">1</span><span class="pl-kos">}</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L125" class="blob-num js-line-number js-code-nav-line-number" data-line-number="125"></td>
+          <td id="file-move-html-LC125" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">mass</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L126" class="blob-num js-line-number js-code-nav-line-number" data-line-number="126"></td>
+          <td id="file-move-html-LC126" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L127" class="blob-num js-line-number js-code-nav-line-number" data-line-number="127"></td>
+          <td id="file-move-html-LC127" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">//threeJS Section</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L128" class="blob-num js-line-number js-code-nav-line-number" data-line-number="128"></td>
+          <td id="file-move-html-LC128" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">blockPlane</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-c1">THREE</span><span class="pl-kos">.</span><span class="pl-c1">Mesh</span><span class="pl-kos">(</span><span class="pl-k">new</span> <span class="pl-c1">THREE</span><span class="pl-kos">.</span><span class="pl-c1">BoxBufferGeometry</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-k">new</span> <span class="pl-c1">THREE</span><span class="pl-kos">.</span><span class="pl-c1">MeshPhongMaterial</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-c1">color</span>: <span class="pl-c1">0xa0afa4</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L129" class="blob-num js-line-number js-code-nav-line-number" data-line-number="129"></td>
+          <td id="file-move-html-LC129" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L130" class="blob-num js-line-number js-code-nav-line-number" data-line-number="130"></td>
+          <td id="file-move-html-LC130" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">blockPlane</span><span class="pl-kos">.</span><span class="pl-c1">position</span><span class="pl-kos">.</span><span class="pl-en">set</span><span class="pl-kos">(</span><span class="pl-s1">pos</span><span class="pl-kos">.</span><span class="pl-c1">x</span><span class="pl-kos">,</span> <span class="pl-s1">pos</span><span class="pl-kos">.</span><span class="pl-c1">y</span><span class="pl-kos">,</span> <span class="pl-s1">pos</span><span class="pl-kos">.</span><span class="pl-c1">z</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L131" class="blob-num js-line-number js-code-nav-line-number" data-line-number="131"></td>
+          <td id="file-move-html-LC131" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">blockPlane</span><span class="pl-kos">.</span><span class="pl-c1">scale</span><span class="pl-kos">.</span><span class="pl-en">set</span><span class="pl-kos">(</span><span class="pl-s1">scale</span><span class="pl-kos">.</span><span class="pl-c1">x</span><span class="pl-kos">,</span> <span class="pl-s1">scale</span><span class="pl-kos">.</span><span class="pl-c1">y</span><span class="pl-kos">,</span> <span class="pl-s1">scale</span><span class="pl-kos">.</span><span class="pl-c1">z</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L132" class="blob-num js-line-number js-code-nav-line-number" data-line-number="132"></td>
+          <td id="file-move-html-LC132" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L133" class="blob-num js-line-number js-code-nav-line-number" data-line-number="133"></td>
+          <td id="file-move-html-LC133" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">blockPlane</span><span class="pl-kos">.</span><span class="pl-c1">castShadow</span> <span class="pl-c1">=</span> <span class="pl-c1">true</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L134" class="blob-num js-line-number js-code-nav-line-number" data-line-number="134"></td>
+          <td id="file-move-html-LC134" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">blockPlane</span><span class="pl-kos">.</span><span class="pl-c1">receiveShadow</span> <span class="pl-c1">=</span> <span class="pl-c1">true</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L135" class="blob-num js-line-number js-code-nav-line-number" data-line-number="135"></td>
+          <td id="file-move-html-LC135" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L136" class="blob-num js-line-number js-code-nav-line-number" data-line-number="136"></td>
+          <td id="file-move-html-LC136" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">scene</span><span class="pl-kos">.</span><span class="pl-en">add</span><span class="pl-kos">(</span><span class="pl-s1">blockPlane</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L137" class="blob-num js-line-number js-code-nav-line-number" data-line-number="137"></td>
+          <td id="file-move-html-LC137" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L138" class="blob-num js-line-number js-code-nav-line-number" data-line-number="138"></td>
+          <td id="file-move-html-LC138" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L139" class="blob-num js-line-number js-code-nav-line-number" data-line-number="139"></td>
+          <td id="file-move-html-LC139" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">//Ammojs Section</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L140" class="blob-num js-line-number js-code-nav-line-number" data-line-number="140"></td>
+          <td id="file-move-html-LC140" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">transform</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btTransform</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L141" class="blob-num js-line-number js-code-nav-line-number" data-line-number="141"></td>
+          <td id="file-move-html-LC141" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">transform</span><span class="pl-kos">.</span><span class="pl-en">setIdentity</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L142" class="blob-num js-line-number js-code-nav-line-number" data-line-number="142"></td>
+          <td id="file-move-html-LC142" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">transform</span><span class="pl-kos">.</span><span class="pl-en">setOrigin</span><span class="pl-kos">(</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btVector3</span><span class="pl-kos">(</span> <span class="pl-s1">pos</span><span class="pl-kos">.</span><span class="pl-c1">x</span><span class="pl-kos">,</span> <span class="pl-s1">pos</span><span class="pl-kos">.</span><span class="pl-c1">y</span><span class="pl-kos">,</span> <span class="pl-s1">pos</span><span class="pl-kos">.</span><span class="pl-c1">z</span> <span class="pl-kos">)</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L143" class="blob-num js-line-number js-code-nav-line-number" data-line-number="143"></td>
+          <td id="file-move-html-LC143" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">transform</span><span class="pl-kos">.</span><span class="pl-en">setRotation</span><span class="pl-kos">(</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btQuaternion</span><span class="pl-kos">(</span> <span class="pl-s1">quat</span><span class="pl-kos">.</span><span class="pl-c1">x</span><span class="pl-kos">,</span> <span class="pl-s1">quat</span><span class="pl-kos">.</span><span class="pl-c1">y</span><span class="pl-kos">,</span> <span class="pl-s1">quat</span><span class="pl-kos">.</span><span class="pl-c1">z</span><span class="pl-kos">,</span> <span class="pl-s1">quat</span><span class="pl-kos">.</span><span class="pl-c1">w</span> <span class="pl-kos">)</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L144" class="blob-num js-line-number js-code-nav-line-number" data-line-number="144"></td>
+          <td id="file-move-html-LC144" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">motionState</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btDefaultMotionState</span><span class="pl-kos">(</span> <span class="pl-s1">transform</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L145" class="blob-num js-line-number js-code-nav-line-number" data-line-number="145"></td>
+          <td id="file-move-html-LC145" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L146" class="blob-num js-line-number js-code-nav-line-number" data-line-number="146"></td>
+          <td id="file-move-html-LC146" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">colShape</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btBoxShape</span><span class="pl-kos">(</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btVector3</span><span class="pl-kos">(</span> <span class="pl-s1">scale</span><span class="pl-kos">.</span><span class="pl-c1">x</span> <span class="pl-c1">*</span> <span class="pl-c1">0.5</span><span class="pl-kos">,</span> <span class="pl-s1">scale</span><span class="pl-kos">.</span><span class="pl-c1">y</span> <span class="pl-c1">*</span> <span class="pl-c1">0.5</span><span class="pl-kos">,</span> <span class="pl-s1">scale</span><span class="pl-kos">.</span><span class="pl-c1">z</span> <span class="pl-c1">*</span> <span class="pl-c1">0.5</span> <span class="pl-kos">)</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L147" class="blob-num js-line-number js-code-nav-line-number" data-line-number="147"></td>
+          <td id="file-move-html-LC147" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">colShape</span><span class="pl-kos">.</span><span class="pl-en">setMargin</span><span class="pl-kos">(</span> <span class="pl-c1">0.05</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L148" class="blob-num js-line-number js-code-nav-line-number" data-line-number="148"></td>
+          <td id="file-move-html-LC148" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L149" class="blob-num js-line-number js-code-nav-line-number" data-line-number="149"></td>
+          <td id="file-move-html-LC149" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">localInertia</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btVector3</span><span class="pl-kos">(</span> <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-c1">0</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L150" class="blob-num js-line-number js-code-nav-line-number" data-line-number="150"></td>
+          <td id="file-move-html-LC150" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">colShape</span><span class="pl-kos">.</span><span class="pl-en">calculateLocalInertia</span><span class="pl-kos">(</span> <span class="pl-s1">mass</span><span class="pl-kos">,</span> <span class="pl-s1">localInertia</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L151" class="blob-num js-line-number js-code-nav-line-number" data-line-number="151"></td>
+          <td id="file-move-html-LC151" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L152" class="blob-num js-line-number js-code-nav-line-number" data-line-number="152"></td>
+          <td id="file-move-html-LC152" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">rbInfo</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btRigidBodyConstructionInfo</span><span class="pl-kos">(</span> <span class="pl-s1">mass</span><span class="pl-kos">,</span> <span class="pl-s1">motionState</span><span class="pl-kos">,</span> <span class="pl-s1">colShape</span><span class="pl-kos">,</span> <span class="pl-s1">localInertia</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L153" class="blob-num js-line-number js-code-nav-line-number" data-line-number="153"></td>
+          <td id="file-move-html-LC153" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">body</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btRigidBody</span><span class="pl-kos">(</span> <span class="pl-s1">rbInfo</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L154" class="blob-num js-line-number js-code-nav-line-number" data-line-number="154"></td>
+          <td id="file-move-html-LC154" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L155" class="blob-num js-line-number js-code-nav-line-number" data-line-number="155"></td>
+          <td id="file-move-html-LC155" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">body</span><span class="pl-kos">.</span><span class="pl-en">setFriction</span><span class="pl-kos">(</span><span class="pl-c1">4</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L156" class="blob-num js-line-number js-code-nav-line-number" data-line-number="156"></td>
+          <td id="file-move-html-LC156" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">body</span><span class="pl-kos">.</span><span class="pl-en">setRollingFriction</span><span class="pl-kos">(</span><span class="pl-c1">10</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L157" class="blob-num js-line-number js-code-nav-line-number" data-line-number="157"></td>
+          <td id="file-move-html-LC157" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L158" class="blob-num js-line-number js-code-nav-line-number" data-line-number="158"></td>
+          <td id="file-move-html-LC158" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">physicsWorld</span><span class="pl-kos">.</span><span class="pl-en">addRigidBody</span><span class="pl-kos">(</span> <span class="pl-s1">body</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L159" class="blob-num js-line-number js-code-nav-line-number" data-line-number="159"></td>
+          <td id="file-move-html-LC159" class="blob-code blob-code-inner js-file-line">            <span class="pl-kos">}</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L160" class="blob-num js-line-number js-code-nav-line-number" data-line-number="160"></td>
+          <td id="file-move-html-LC160" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L161" class="blob-num js-line-number js-code-nav-line-number" data-line-number="161"></td>
+          <td id="file-move-html-LC161" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L162" class="blob-num js-line-number js-code-nav-line-number" data-line-number="162"></td>
+          <td id="file-move-html-LC162" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">function</span> <span class="pl-en">createBall</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L163" class="blob-num js-line-number js-code-nav-line-number" data-line-number="163"></td>
+          <td id="file-move-html-LC163" class="blob-code blob-code-inner js-file-line">                </td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L164" class="blob-num js-line-number js-code-nav-line-number" data-line-number="164"></td>
+          <td id="file-move-html-LC164" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">pos</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span><span class="pl-c1">x</span>: <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-c1">y</span>: <span class="pl-c1">4</span><span class="pl-kos">,</span> <span class="pl-c1">z</span>: <span class="pl-c1">0</span><span class="pl-kos">}</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L165" class="blob-num js-line-number js-code-nav-line-number" data-line-number="165"></td>
+          <td id="file-move-html-LC165" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">radius</span> <span class="pl-c1">=</span> <span class="pl-c1">2</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L166" class="blob-num js-line-number js-code-nav-line-number" data-line-number="166"></td>
+          <td id="file-move-html-LC166" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">quat</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span><span class="pl-c1">x</span>: <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-c1">y</span>: <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-c1">z</span>: <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-c1">w</span>: <span class="pl-c1">1</span><span class="pl-kos">}</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L167" class="blob-num js-line-number js-code-nav-line-number" data-line-number="167"></td>
+          <td id="file-move-html-LC167" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">mass</span> <span class="pl-c1">=</span> <span class="pl-c1">1</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L168" class="blob-num js-line-number js-code-nav-line-number" data-line-number="168"></td>
+          <td id="file-move-html-LC168" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L169" class="blob-num js-line-number js-code-nav-line-number" data-line-number="169"></td>
+          <td id="file-move-html-LC169" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">//threeJS Section</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L170" class="blob-num js-line-number js-code-nav-line-number" data-line-number="170"></td>
+          <td id="file-move-html-LC170" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">ball</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-c1">THREE</span><span class="pl-kos">.</span><span class="pl-c1">Mesh</span><span class="pl-kos">(</span><span class="pl-k">new</span> <span class="pl-c1">THREE</span><span class="pl-kos">.</span><span class="pl-c1">SphereBufferGeometry</span><span class="pl-kos">(</span><span class="pl-s1">radius</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-k">new</span> <span class="pl-c1">THREE</span><span class="pl-kos">.</span><span class="pl-c1">MeshPhongMaterial</span><span class="pl-kos">(</span><span class="pl-kos">{</span><span class="pl-c1">color</span>: <span class="pl-c1">0xff0505</span><span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L171" class="blob-num js-line-number js-code-nav-line-number" data-line-number="171"></td>
+          <td id="file-move-html-LC171" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L172" class="blob-num js-line-number js-code-nav-line-number" data-line-number="172"></td>
+          <td id="file-move-html-LC172" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">ball</span><span class="pl-kos">.</span><span class="pl-c1">position</span><span class="pl-kos">.</span><span class="pl-en">set</span><span class="pl-kos">(</span><span class="pl-s1">pos</span><span class="pl-kos">.</span><span class="pl-c1">x</span><span class="pl-kos">,</span> <span class="pl-s1">pos</span><span class="pl-kos">.</span><span class="pl-c1">y</span><span class="pl-kos">,</span> <span class="pl-s1">pos</span><span class="pl-kos">.</span><span class="pl-c1">z</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L173" class="blob-num js-line-number js-code-nav-line-number" data-line-number="173"></td>
+          <td id="file-move-html-LC173" class="blob-code blob-code-inner js-file-line">                </td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L174" class="blob-num js-line-number js-code-nav-line-number" data-line-number="174"></td>
+          <td id="file-move-html-LC174" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">ball</span><span class="pl-kos">.</span><span class="pl-c1">castShadow</span> <span class="pl-c1">=</span> <span class="pl-c1">true</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L175" class="blob-num js-line-number js-code-nav-line-number" data-line-number="175"></td>
+          <td id="file-move-html-LC175" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">ball</span><span class="pl-kos">.</span><span class="pl-c1">receiveShadow</span> <span class="pl-c1">=</span> <span class="pl-c1">true</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L176" class="blob-num js-line-number js-code-nav-line-number" data-line-number="176"></td>
+          <td id="file-move-html-LC176" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L177" class="blob-num js-line-number js-code-nav-line-number" data-line-number="177"></td>
+          <td id="file-move-html-LC177" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">scene</span><span class="pl-kos">.</span><span class="pl-en">add</span><span class="pl-kos">(</span><span class="pl-s1">ball</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L178" class="blob-num js-line-number js-code-nav-line-number" data-line-number="178"></td>
+          <td id="file-move-html-LC178" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L179" class="blob-num js-line-number js-code-nav-line-number" data-line-number="179"></td>
+          <td id="file-move-html-LC179" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L180" class="blob-num js-line-number js-code-nav-line-number" data-line-number="180"></td>
+          <td id="file-move-html-LC180" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">//Ammojs Section</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L181" class="blob-num js-line-number js-code-nav-line-number" data-line-number="181"></td>
+          <td id="file-move-html-LC181" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">transform</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btTransform</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L182" class="blob-num js-line-number js-code-nav-line-number" data-line-number="182"></td>
+          <td id="file-move-html-LC182" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">transform</span><span class="pl-kos">.</span><span class="pl-en">setIdentity</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L183" class="blob-num js-line-number js-code-nav-line-number" data-line-number="183"></td>
+          <td id="file-move-html-LC183" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">transform</span><span class="pl-kos">.</span><span class="pl-en">setOrigin</span><span class="pl-kos">(</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btVector3</span><span class="pl-kos">(</span> <span class="pl-s1">pos</span><span class="pl-kos">.</span><span class="pl-c1">x</span><span class="pl-kos">,</span> <span class="pl-s1">pos</span><span class="pl-kos">.</span><span class="pl-c1">y</span><span class="pl-kos">,</span> <span class="pl-s1">pos</span><span class="pl-kos">.</span><span class="pl-c1">z</span> <span class="pl-kos">)</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L184" class="blob-num js-line-number js-code-nav-line-number" data-line-number="184"></td>
+          <td id="file-move-html-LC184" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">transform</span><span class="pl-kos">.</span><span class="pl-en">setRotation</span><span class="pl-kos">(</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btQuaternion</span><span class="pl-kos">(</span> <span class="pl-s1">quat</span><span class="pl-kos">.</span><span class="pl-c1">x</span><span class="pl-kos">,</span> <span class="pl-s1">quat</span><span class="pl-kos">.</span><span class="pl-c1">y</span><span class="pl-kos">,</span> <span class="pl-s1">quat</span><span class="pl-kos">.</span><span class="pl-c1">z</span><span class="pl-kos">,</span> <span class="pl-s1">quat</span><span class="pl-kos">.</span><span class="pl-c1">w</span> <span class="pl-kos">)</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L185" class="blob-num js-line-number js-code-nav-line-number" data-line-number="185"></td>
+          <td id="file-move-html-LC185" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">motionState</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btDefaultMotionState</span><span class="pl-kos">(</span> <span class="pl-s1">transform</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L186" class="blob-num js-line-number js-code-nav-line-number" data-line-number="186"></td>
+          <td id="file-move-html-LC186" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L187" class="blob-num js-line-number js-code-nav-line-number" data-line-number="187"></td>
+          <td id="file-move-html-LC187" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">colShape</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btSphereShape</span><span class="pl-kos">(</span> <span class="pl-s1">radius</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L188" class="blob-num js-line-number js-code-nav-line-number" data-line-number="188"></td>
+          <td id="file-move-html-LC188" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">colShape</span><span class="pl-kos">.</span><span class="pl-en">setMargin</span><span class="pl-kos">(</span> <span class="pl-c1">0.05</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L189" class="blob-num js-line-number js-code-nav-line-number" data-line-number="189"></td>
+          <td id="file-move-html-LC189" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L190" class="blob-num js-line-number js-code-nav-line-number" data-line-number="190"></td>
+          <td id="file-move-html-LC190" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">localInertia</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btVector3</span><span class="pl-kos">(</span> <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-c1">0</span><span class="pl-kos">,</span> <span class="pl-c1">0</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L191" class="blob-num js-line-number js-code-nav-line-number" data-line-number="191"></td>
+          <td id="file-move-html-LC191" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">colShape</span><span class="pl-kos">.</span><span class="pl-en">calculateLocalInertia</span><span class="pl-kos">(</span> <span class="pl-s1">mass</span><span class="pl-kos">,</span> <span class="pl-s1">localInertia</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L192" class="blob-num js-line-number js-code-nav-line-number" data-line-number="192"></td>
+          <td id="file-move-html-LC192" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L193" class="blob-num js-line-number js-code-nav-line-number" data-line-number="193"></td>
+          <td id="file-move-html-LC193" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">rbInfo</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btRigidBodyConstructionInfo</span><span class="pl-kos">(</span> <span class="pl-s1">mass</span><span class="pl-kos">,</span> <span class="pl-s1">motionState</span><span class="pl-kos">,</span> <span class="pl-s1">colShape</span><span class="pl-kos">,</span> <span class="pl-s1">localInertia</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L194" class="blob-num js-line-number js-code-nav-line-number" data-line-number="194"></td>
+          <td id="file-move-html-LC194" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">let</span> <span class="pl-s1">body</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Ammo</span><span class="pl-kos">.</span><span class="pl-c1">btRigidBody</span><span class="pl-kos">(</span> <span class="pl-s1">rbInfo</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L195" class="blob-num js-line-number js-code-nav-line-number" data-line-number="195"></td>
+          <td id="file-move-html-LC195" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L196" class="blob-num js-line-number js-code-nav-line-number" data-line-number="196"></td>
+          <td id="file-move-html-LC196" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">body</span><span class="pl-kos">.</span><span class="pl-en">setFriction</span><span class="pl-kos">(</span><span class="pl-c1">4</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L197" class="blob-num js-line-number js-code-nav-line-number" data-line-number="197"></td>
+          <td id="file-move-html-LC197" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">body</span><span class="pl-kos">.</span><span class="pl-en">setRollingFriction</span><span class="pl-kos">(</span><span class="pl-c1">10</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L198" class="blob-num js-line-number js-code-nav-line-number" data-line-number="198"></td>
+          <td id="file-move-html-LC198" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L199" class="blob-num js-line-number js-code-nav-line-number" data-line-number="199"></td>
+          <td id="file-move-html-LC199" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L200" class="blob-num js-line-number js-code-nav-line-number" data-line-number="200"></td>
+          <td id="file-move-html-LC200" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">physicsWorld</span><span class="pl-kos">.</span><span class="pl-en">addRigidBody</span><span class="pl-kos">(</span> <span class="pl-s1">body</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L201" class="blob-num js-line-number js-code-nav-line-number" data-line-number="201"></td>
+          <td id="file-move-html-LC201" class="blob-code blob-code-inner js-file-line">                </td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L202" class="blob-num js-line-number js-code-nav-line-number" data-line-number="202"></td>
+          <td id="file-move-html-LC202" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">ball</span><span class="pl-kos">.</span><span class="pl-c1">userData</span><span class="pl-kos">.</span><span class="pl-c1">physicsBody</span> <span class="pl-c1">=</span> <span class="pl-s1">body</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L203" class="blob-num js-line-number js-code-nav-line-number" data-line-number="203"></td>
+          <td id="file-move-html-LC203" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">rigidBodies</span><span class="pl-kos">.</span><span class="pl-en">push</span><span class="pl-kos">(</span><span class="pl-s1">ball</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L204" class="blob-num js-line-number js-code-nav-line-number" data-line-number="204"></td>
+          <td id="file-move-html-LC204" class="blob-code blob-code-inner js-file-line">            <span class="pl-kos">}</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L205" class="blob-num js-line-number js-code-nav-line-number" data-line-number="205"></td>
+          <td id="file-move-html-LC205" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L206" class="blob-num js-line-number js-code-nav-line-number" data-line-number="206"></td>
+          <td id="file-move-html-LC206" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L207" class="blob-num js-line-number js-code-nav-line-number" data-line-number="207"></td>
+          <td id="file-move-html-LC207" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">function</span> <span class="pl-en">updatePhysics</span><span class="pl-kos">(</span> <span class="pl-s1">deltaTime</span> <span class="pl-kos">)</span><span class="pl-kos">{</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L208" class="blob-num js-line-number js-code-nav-line-number" data-line-number="208"></td>
+          <td id="file-move-html-LC208" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L209" class="blob-num js-line-number js-code-nav-line-number" data-line-number="209"></td>
+          <td id="file-move-html-LC209" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">// Step world</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L210" class="blob-num js-line-number js-code-nav-line-number" data-line-number="210"></td>
+          <td id="file-move-html-LC210" class="blob-code blob-code-inner js-file-line">                <span class="pl-s1">physicsWorld</span><span class="pl-kos">.</span><span class="pl-en">stepSimulation</span><span class="pl-kos">(</span> <span class="pl-s1">deltaTime</span><span class="pl-kos">,</span> <span class="pl-c1">10</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L211" class="blob-num js-line-number js-code-nav-line-number" data-line-number="211"></td>
+          <td id="file-move-html-LC211" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L212" class="blob-num js-line-number js-code-nav-line-number" data-line-number="212"></td>
+          <td id="file-move-html-LC212" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">// Update rigid bodies</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L213" class="blob-num js-line-number js-code-nav-line-number" data-line-number="213"></td>
+          <td id="file-move-html-LC213" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">for</span> <span class="pl-kos">(</span> <span class="pl-k">let</span> <span class="pl-s1">i</span> <span class="pl-c1">=</span> <span class="pl-c1">0</span><span class="pl-kos">;</span> <span class="pl-s1">i</span> <span class="pl-c1">&lt;</span> <span class="pl-s1">rigidBodies</span><span class="pl-kos">.</span><span class="pl-c1">length</span><span class="pl-kos">;</span> <span class="pl-s1">i</span><span class="pl-c1">++</span> <span class="pl-kos">)</span> <span class="pl-kos">{</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L214" class="blob-num js-line-number js-code-nav-line-number" data-line-number="214"></td>
+          <td id="file-move-html-LC214" class="blob-code blob-code-inner js-file-line">                    <span class="pl-k">let</span> <span class="pl-s1">objThree</span> <span class="pl-c1">=</span> <span class="pl-s1">rigidBodies</span><span class="pl-kos">[</span> <span class="pl-s1">i</span> <span class="pl-kos">]</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L215" class="blob-num js-line-number js-code-nav-line-number" data-line-number="215"></td>
+          <td id="file-move-html-LC215" class="blob-code blob-code-inner js-file-line">                    <span class="pl-k">let</span> <span class="pl-s1">objAmmo</span> <span class="pl-c1">=</span> <span class="pl-s1">objThree</span><span class="pl-kos">.</span><span class="pl-c1">userData</span><span class="pl-kos">.</span><span class="pl-c1">physicsBody</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L216" class="blob-num js-line-number js-code-nav-line-number" data-line-number="216"></td>
+          <td id="file-move-html-LC216" class="blob-code blob-code-inner js-file-line">                    <span class="pl-k">let</span> <span class="pl-s1">ms</span> <span class="pl-c1">=</span> <span class="pl-s1">objAmmo</span><span class="pl-kos">.</span><span class="pl-en">getMotionState</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L217" class="blob-num js-line-number js-code-nav-line-number" data-line-number="217"></td>
+          <td id="file-move-html-LC217" class="blob-code blob-code-inner js-file-line">                    <span class="pl-k">if</span> <span class="pl-kos">(</span> <span class="pl-s1">ms</span> <span class="pl-kos">)</span> <span class="pl-kos">{</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L218" class="blob-num js-line-number js-code-nav-line-number" data-line-number="218"></td>
+          <td id="file-move-html-LC218" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L219" class="blob-num js-line-number js-code-nav-line-number" data-line-number="219"></td>
+          <td id="file-move-html-LC219" class="blob-code blob-code-inner js-file-line">                        <span class="pl-s1">ms</span><span class="pl-kos">.</span><span class="pl-en">getWorldTransform</span><span class="pl-kos">(</span> <span class="pl-s1">tmpTrans</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L220" class="blob-num js-line-number js-code-nav-line-number" data-line-number="220"></td>
+          <td id="file-move-html-LC220" class="blob-code blob-code-inner js-file-line">                        <span class="pl-k">let</span> <span class="pl-s1">p</span> <span class="pl-c1">=</span> <span class="pl-s1">tmpTrans</span><span class="pl-kos">.</span><span class="pl-en">getOrigin</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L221" class="blob-num js-line-number js-code-nav-line-number" data-line-number="221"></td>
+          <td id="file-move-html-LC221" class="blob-code blob-code-inner js-file-line">                        <span class="pl-k">let</span> <span class="pl-s1">q</span> <span class="pl-c1">=</span> <span class="pl-s1">tmpTrans</span><span class="pl-kos">.</span><span class="pl-en">getRotation</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L222" class="blob-num js-line-number js-code-nav-line-number" data-line-number="222"></td>
+          <td id="file-move-html-LC222" class="blob-code blob-code-inner js-file-line">                        <span class="pl-s1">objThree</span><span class="pl-kos">.</span><span class="pl-c1">position</span><span class="pl-kos">.</span><span class="pl-en">set</span><span class="pl-kos">(</span> <span class="pl-s1">p</span><span class="pl-kos">.</span><span class="pl-en">x</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">p</span><span class="pl-kos">.</span><span class="pl-en">y</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">p</span><span class="pl-kos">.</span><span class="pl-en">z</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L223" class="blob-num js-line-number js-code-nav-line-number" data-line-number="223"></td>
+          <td id="file-move-html-LC223" class="blob-code blob-code-inner js-file-line">                        <span class="pl-s1">objThree</span><span class="pl-kos">.</span><span class="pl-c1">quaternion</span><span class="pl-kos">.</span><span class="pl-en">set</span><span class="pl-kos">(</span> <span class="pl-s1">q</span><span class="pl-kos">.</span><span class="pl-en">x</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">q</span><span class="pl-kos">.</span><span class="pl-en">y</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">q</span><span class="pl-kos">.</span><span class="pl-en">z</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-s1">q</span><span class="pl-kos">.</span><span class="pl-en">w</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">)</span><span class="pl-kos">;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L224" class="blob-num js-line-number js-code-nav-line-number" data-line-number="224"></td>
+          <td id="file-move-html-LC224" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L225" class="blob-num js-line-number js-code-nav-line-number" data-line-number="225"></td>
+          <td id="file-move-html-LC225" class="blob-code blob-code-inner js-file-line">                    <span class="pl-kos">}</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L226" class="blob-num js-line-number js-code-nav-line-number" data-line-number="226"></td>
+          <td id="file-move-html-LC226" class="blob-code blob-code-inner js-file-line">                <span class="pl-kos">}</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L227" class="blob-num js-line-number js-code-nav-line-number" data-line-number="227"></td>
+          <td id="file-move-html-LC227" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L228" class="blob-num js-line-number js-code-nav-line-number" data-line-number="228"></td>
+          <td id="file-move-html-LC228" class="blob-code blob-code-inner js-file-line">            <span class="pl-kos">}</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L229" class="blob-num js-line-number js-code-nav-line-number" data-line-number="229"></td>
+          <td id="file-move-html-LC229" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L230" class="blob-num js-line-number js-code-nav-line-number" data-line-number="230"></td>
+          <td id="file-move-html-LC230" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L231" class="blob-num js-line-number js-code-nav-line-number" data-line-number="231"></td>
+          <td id="file-move-html-LC231" class="blob-code blob-code-inner js-file-line">        <span class="pl-kos">&lt;/</span><span class="pl-ent">script</span><span class="pl-kos">&gt;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L232" class="blob-num js-line-number js-code-nav-line-number" data-line-number="232"></td>
+          <td id="file-move-html-LC232" class="blob-code blob-code-inner js-file-line">    <span class="pl-kos">&lt;/</span><span class="pl-ent">body</span><span class="pl-kos">&gt;</span></td>
+        </tr>
+        <tr>
+          <td id="file-move-html-L233" class="blob-num js-line-number js-code-nav-line-number" data-line-number="233"></td>
+          <td id="file-move-html-LC233" class="blob-code blob-code-inner js-file-line"><span class="pl-kos">&lt;/</span><span class="pl-ent">html</span><span class="pl-kos">&gt;</span></td>
+        </tr>
+  </tbody></table>
+</div>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/BlueMagnificent/819f08b9c455d1b7fd1815b137e61a41/raw/4402103365c3e7846e884a3cd23b127f81f2d5c4/move.html" style="float:right">view raw</a>
+        <a href="https://gist.github.com/BlueMagnificent/819f08b9c455d1b7fd1815b137e61a41#file-move-html">
+          move.html
+        </a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200; if (document) {document.domain = document.domain;}function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height);var elements = document.getElementsByClassName("gist-data"); for (var i = 0; i < elements.length; i++) {elements[i].style.overflow = "visible"}resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {try {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);} catch(error) {console.log('maybeResize error: ', error)}}maybeResize();</script><script defer="defer" src="v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon="{&quot;rayId&quot;:&quot;6c7df9075f7ccd77&quot;,&quot;token&quot;:&quot;0b5f665943484354a59c39c6833f7078&quot;,&quot;version&quot;:&quot;2021.12.0&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
+</body></html>
